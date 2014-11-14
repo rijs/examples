@@ -6,9 +6,7 @@ ripple
   .resource('tweets.data', ['lorem', 'ipsum'])
   .resource('twitter-feed.js', function(d){
     this.style.color = 'green'
-    this.innerHTML = d
-      .map(function(d){ return '<li>' + d + '</li>' })
-      .join('') 
+    this.innerHTML = '<li>' + d.join('</li><li>') + '</li>'
   })
 
 server.listen(4000)
