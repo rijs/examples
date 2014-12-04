@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background: crimson; 
+  padding: 0;
+  margin: 0; }
+
+  squares {
+    margin: 30px auto;
+    position: relative;
+    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    display: block; }
+
+    square {
+      display: block;
+      width: 15px; 
+      height: 15px; 
+      position: absolute; 
+      top: -15px;
+      left: -15px; 
+      border: 1px solid black;
+      margin-left: -2px;
+      margin-top: -2px; }
+
+    square:hover {
+      background: goldenrod; }
+
+    square.is-selected {
+      background: gold; }
