@@ -5,8 +5,8 @@ var static = require('serve-static')(__dirname)
  
 ripple
   .db(process.env.DATABASE_URL)
-  .resource('squares.data', [])
-  .resource('squares.js', function squares(data){
+  .resource('squares', [])
+  .resource('squares-canvas', function squares(data){
     var cell = 15
       , size = 40
       , fill = Array(1600)
@@ -19,9 +19,9 @@ ripple
       .data(fill)
   
     join.enter()
-      .append('square')
+      .append('xhtml:square')
       .on('click', function(d, i){  
-        ripple('squares.data').push({ 
+        ripple('squares').push({ 
           square: i
         , value: !d
         })

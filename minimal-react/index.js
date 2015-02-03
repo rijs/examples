@@ -3,8 +3,8 @@ var app    = require('express')()
   , ripple = require('ripple')(server, app)
 
 ripple
-  .resource('tweets.data', ['lorem', 'ipsum'])
-  .resource('twitter-feed.js', function(d){
+  .resource('tweets', ['lorem', 'ipsum'])
+  .resource('twitter-feed', function(d){
     var TwitterFeed = React.createClass({ displayName: 'TwitterFeed',
       render: function() {
         var createLi = function(itemText) {
@@ -14,7 +14,10 @@ ripple
       }
     })
 
-    React.render(React.createElement(TwitterFeed, { items: d }), this)
+    // React does not like rendering on Shadow Root..
+    var root = this.firstChild || this.appendChild(document.createElement('div'))
+
+    React.render(React.createElement(TwitterFeed, { items: d }), root)
   })
 
 server.listen(4000)
