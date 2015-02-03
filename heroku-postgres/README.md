@@ -2,6 +2,10 @@
 
 This example demonstrates a simple collaborative realtime pixel-editor deploying a ripple app on heroku and using a postgres database for persistence.
 
+![image](https://cloud.githubusercontent.com/assets/2184177/5291842/64475b6a-7b50-11e4-91f0-3eabf3f05922.png)
+
+Running example: https://immense-scrubland-5550.herokuapp.com/ (try opening in two tabs side-by-side)
+
 # Run
 
 ```
