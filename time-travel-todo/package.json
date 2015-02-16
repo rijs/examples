@@ -1,0 +1,7 @@
+{
+  "name": "ripple-examples",
+  "dependencies": {
+    "d3": "^3.5.4",
+    "ripple": "git://github.com/pemrouz/ripple.git"
+  }
+}

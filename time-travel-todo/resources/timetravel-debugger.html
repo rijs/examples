@@ -1,0 +1,28 @@
+<script>
+  ripple({ name: 'timetravel-debugger', body: debug })
+
+  function debug() {
+    var versions = ripple._resources().versions
+      , root = sel('timetravel-debugger').node().shadowRoot
+
+    Array.observe(versions, debug)
+    
+    var a = once(root, 'a', versions)
+      .text(index)
+      .on('click', function(d, i){
+        ripple(i)
+      })
+    
+    once(a, 'span', self)
+      .attr('title', details)
+      .text(label)
+  }
+
+  function label(d, i){ 
+    return d.name + ' (' + d.index + ')' 
+  }
+
+  function details(d, i){ 
+    return str(ripple._resources()[d.name].versions[d.index].toJS())
+  }
+</script>
