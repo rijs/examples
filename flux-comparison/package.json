@@ -1,0 +1,14 @@
+{
+  "name": "ripple-examples",
+  "dependencies": {
+    "d3": "^3.5.4",
+    "ripple": "git://github.com/pemrouz/ripple.git"
+  },
+  "scripts": {
+    "start": "watchify -t bulkify app.js -o build/bundle.js -v -d"
+  },
+  "devDependencies": {
+    "bulkify": "^1.1.0",
+    "watchify": "^2.3.0"
+  }
+}
