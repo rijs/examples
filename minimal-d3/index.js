@@ -3,15 +3,15 @@ var app    = require('express')()
   , ripple = require('ripple')(server, app)
 
 ripple
-  .resource('tweets.data', ['lorem', 'ipsum'])
-  .resource('twitter-feed.js', function(d){
+  .resource('tweets', ['lorem', 'ipsum'])
+  .resource('twitter-feed', function(d){
     d3.select(this)
-      .style('color', 'green')
       .selectAll('li')
       .data(d)
       .enter()
       .append('li')
       .text(String)
+      .style('color', 'green')
   })
 
 server.listen(4000)
