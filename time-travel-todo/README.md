@@ -1,6 +1,6 @@
 # TodoMVC + HTML Imports + Immutability + Time Travel Debugger!
 
-This example, built in the style of the [obligatory TodoMVC example](https://github.com/tastejs/todomvc/), is primarily to demo the new automatic versioning of resources, using [immutable data structures](https://github.com/facebook/immutable-js) for memory efficiency and performance. Each resource object internally has a new `versions` property which is an array of all it's historical states. You can rollback individual resources by providing the historical index as the second parameter to ripple. As with all changes, rolling back a resource will also automatically rerenders the parts of your app that it affects:
+This example, built in the style of the [obligatory TodoMVC example](https://github.com/tastejs/todomvc/), is primarily to demo the new automatic versioning of resources, using [immutable data structures](https://github.com/facebook/immutable-js) for memory efficiency and performance. Each resource object internally has a new `versions` property which is an array of all it's historical states. You can rollback individual resources by providing the historical index as the second parameter to ripple. As with all changes, rolling back a resource will also automatically rerender the parts of your app that it affects:
 
 ```js
 ripple('tweets', [])
@@ -23,7 +23,9 @@ ripple(10)
 
 The `<timetravel-debugger />` is a simple visualisation of all application versions, the data in each resource (hover over it) and the ability to jump to that state (click it).
 
-This example also uses [HTML Imports](http://www.html5rocks.com/en/tutorials/webcomponents/imports/) as another mechanism for resource delivery. Contrast with other client-side registering approaches (Browserify) or [server-side registering approaches](https://github.com/pemrouz/ripple-examples/blob/master/minimal-vanilla/index.js#L5-L10).
+This example also uses [HTML Imports](http://www.html5rocks.com/en/tutorials/webcomponents/imports/) as another mechanism for resource delivery. Contrast with other client-side registering approaches ([Browserify](https://github.com/pemrouz/ripple-examples/tree/master/flux-comparison)) or [server-side registering approaches](https://github.com/pemrouz/ripple-examples/blob/master/minimal-vanilla/index.js#L5-L10).
+
+![image](https://cloud.githubusercontent.com/assets/2184177/6220345/2d46447e-b62d-11e4-843f-d62d3160d4f0.png)
 
 # Run
 
