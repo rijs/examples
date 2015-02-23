@@ -2,7 +2,7 @@
 
 This example was built to compare Ripple to [other Flux implementations](https://github.com/voronianski/flux-comparison). That is, focusing on just how it performs within one client instance and [simply not rippling/synchronising with other instances](https://github.com/pemrouz/ripple#ripple-vs-flux). As such, this is the first example which runs completely without a server.
 
-This example also demonstrates how easy it is to interoperate Ripple with other strategies (see also resource delivery via HTML Imports). In this case, we use Browserify to bundle all resources. The API for registering a resource on the client is:
+This example also demonstrates how easy it is to interoperate Ripple with other strategies (see also [resource delivery via HTML Imports](https://github.com/pemrouz/ripple-examples/tree/master/time-travel-todo)). In this case, we use Browserify to bundle all resources. The API for registering a resource on the client is:
 
 ```js
 ripple(name, body)
@@ -14,7 +14,7 @@ Or,
 ripple({ name: name, body: body })
 ```
 
-So in the main app we simply loop through all the files in the resources folder and register them:
+So in the main app we [simply loop through all the files in the resources folder and register them](https://github.com/pemrouz/ripple-examples/blob/master/flux-comparison/app.js#L4-L13):
 
 ```js
 var resources = bulk(__dirname, ['resources/*']).resources
