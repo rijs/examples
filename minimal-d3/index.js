@@ -1,6 +1,6 @@
 var app    = require('express')()
   , server = require('http').createServer(app)
-  , ripple = require('ripple')(server, app)
+  , ripple = require('ripple')(server)
 
 ripple('tweets', ['lorem', 'ipsum'])
 ripple('twitter-feed', function(d){

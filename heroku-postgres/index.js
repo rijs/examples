@@ -1,7 +1,7 @@
 var static = require('serve-static')(__dirname)
   , app    = require('express')()
   , server = require('http').createServer(app)
-  , ripple = require('ripple')(server, app)
+  , ripple = require('ripple')(server)
  
 ripple
   .db(process.env.DATABASE_URL)
