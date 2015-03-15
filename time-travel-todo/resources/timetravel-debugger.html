@@ -10,7 +10,7 @@
     var a = once(root, 'a', versions)
       .text(index)
       .on('click', function(d, i){
-        ripple(i)
+        ripple.version(i)
       })
     
     once(a, 'span', identity)

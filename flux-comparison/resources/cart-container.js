@@ -1,4 +1,5 @@
 module.exports = function(cart){
+  if (!cart) return;
   var self = once(this, 'div.cart.uk-panel.uk-panel-box.uk-panel-box-primary')
     once(self, 'div.uk-badge.uk-margin-bottom').text('Your Cart')
     once(self, 'div.uk-margin-small-bottom', [nodes(), total()]).html(String)

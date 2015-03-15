@@ -2,9 +2,8 @@ var app    = require('express')()
   , server = require('http').createServer(app)
   , ripple = require('ripple')(server, app)
 
-ripple
-  .resource('tweets', ['lorem', 'ipsum'])
-  .resource('twitter-feed', function(d){
+ripple('tweets', ['lorem', 'ipsum'])
+ripple('twitter-feed', function(d){
     d3.select(this)
       .selectAll('li')
       .data(d)

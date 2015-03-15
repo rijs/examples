@@ -7,9 +7,9 @@ ripple('tweets', [])
 ripple('tweets').push('lorem')
 ripple('tweets').push('ipsum')
 
-console.log(ripple('tweets', 0)) // switch to []
-console.log(ripple('tweets', 1)) // switch to ['lorem']
-console.log(ripple('tweets', 2)) // switch to ['lorem','ipsum']
+console.log(ripple.version('tweets', 0)) // switch to []
+console.log(ripple.version('tweets', 1)) // switch to ['lorem']
+console.log(ripple.version('tweets', 2)) // switch to ['lorem','ipsum']
 ```
 
 Historical versioning about each resource is currently deliberately localised in each client node (i.e. it will not be cached in localStorage, or propagate to other client/server nodes).
@@ -17,8 +17,8 @@ Historical versioning about each resource is currently deliberately localised in
 Besides per-resource versioning, there is also a versioning for the entire application state, which is simply the aggregate of the index of each resource at a particular time. Every new version added for an individual resource will automatically result in a new record added to the application history. To time-travel, simply provide the time index you wish to move to:
 
 ```js
-ripple(0)
-ripple(10)
+ripple.version(0)
+ripple.version(10)
 ```
 
 The `<timetravel-debugger />` is a simple visualisation of all application versions, the data in each resource (hover over it) and the ability to jump to that state (click it).
