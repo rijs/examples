@@ -2,5 +2,20 @@ doctype
 html
   head
     script(src="http://fb.me/react-0.12.0.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="/ripple.js")
   body
-    twitter-feed(data='tweets', ripple)
+    #container
+    script.
+      var TwitterFeed = React.createClass({ displayName: 'TwitterFeed',
+        render: function() {
+          var createLi = function(itemText) {
+            return React.createElement("li", null, itemText)
+          }
+          return React.createElement("ul", null, this.props.items.map(createLi))
+        }
+      })
+
+      ripple('tweets').on('response', function(){
+        React.render(React.createElement(TwitterFeed, { items: ripple('tweets') }), container)
+      })
