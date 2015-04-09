@@ -8,14 +8,21 @@ html
     #container
     script.
       var TwitterFeed = React.createClass({ displayName: 'TwitterFeed',
+        getInitialState: function() {
+          return { tweets: [] }
+        },
+        componentDidMount: function() {
+          var self = this
+          ripple('tweets').on('response', function() { 
+            self.setState({ tweets: ripple('tweets') }) 
+          })
+        },
         render: function() {
           var createLi = function(itemText) {
             return React.createElement("li", null, itemText)
           }
-          return React.createElement("ul", null, this.props.items.map(createLi))
+          return React.createElement("ul", null, this.state.tweets.map(createLi))
         }
       })
 
-      ripple('tweets').on('response', function(){
-        React.render(React.createElement(TwitterFeed, { items: ripple('tweets') }), container)
-      })
+      React.render(React.createElement(TwitterFeed), container)
