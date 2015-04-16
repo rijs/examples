@@ -17,12 +17,8 @@ block content
   .buttons
     iframe(src="https://ghbtns.com/github-btn.html?user=pemrouz&repo=ripple&type=star&count=true",frameborder="0",scrolling="0",width="78px",height="20px")
 
-    a(href="https://twitter.com/share",class="twitter-share-button",data-via="pemrouz",data-hashtags="Ripple") Tweet
-    script.
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-    a(class="twitter-follow-button",href="https://twitter.com/pemrouz",data-show-count="false",data-lang="en") Follow @pemrouz
-    script.
-      window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    iframe(id="twitter-widget-0",scrolling="no",frameborder="0",allowtransparency="true",src="https://platform.twitter.com/widgets/tweet_button.20ed5cfd7315475c9d1d523194b1645f.en.html#_=1429222934353&amp;count=horizontal&amp;dnt=false&amp;hashtags=Ripple&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Frijs.io%2F&amp;size=m&amp;url=https%3A%2F%2Frijs.io%2F&amp;via=pemrouz",class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal",title="Twitter Tweet Button",data-twttr-rendered="true",style="height: 20px;")
+    iframe(id="twitter-widget-1",scrolling="no",frameborder="0",allowtransparency="true",src="https://platform.twitter.com/widgets/follow_button.7c0d5c8fc0456a01b74fed2e38018608.en.html#_=1429222934362&amp;dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=pemrouz&amp;show_count=false&amp;show_screen_name=true&amp;size=m",class="twitter-follow-button twitter-follow-button",title="Twitter Follow Button",data-twttr-rendered="true",style="height: 20px;")
 
   stream-chart(data="prices")
   stream-chart(data="prices", skip-prerender="true")
