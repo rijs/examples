@@ -1,0 +1,43 @@
+extends ./layout.jade
+
+block content
+  title The Perfect Render
+  h1 The Perfect Render
+  p.
+    What does the perfect render look like? Ideally, everyone agrees, you'd render on the server and continue on the client. But approaches vary. Most struggle to synchronise state, so render the HTML <i>and</i> dump the JSON on the page (or shoved into attribute(s)). Some are wasteful when rerendering, scrapping what the server rendered. Most would like you to use only their chosen templating language.
+    <br>
+    <br>
+    With Ripple's modular approach however, we can use middleware to expand reusable components - even cache the partials. Once served, data is streamed as updated and the views rerendered - using the same component definition. With the D3 philosophy of stamping out <a href="http://ag.svbtle.com/on-d3-components">idempotent components</a> however, nothing is wasted. Nor could the implementation of <code>&lt;stream-chart&gt;</code> could be leaner. It's not limited to using D3 either. You could use this technique with <a href="https://github.com/pemrouz/ripple/issues/23#issuecomment-93657270">any templating language</a>.
+    <br>
+    <br>
+    The example below demonstrates two D3 charts visualising fast-ticking prices (every 200ms). In the second, we add a <code>skip-prerender</code> attribute and skip server-side rendering. Check out the HTML source of this page for yourself. The counters on the right show how the first instance does not recreate any new elements. The third figure shows the ideal minimal DOM footprint on rerendering with keying enabled. 
+    <br>
+    <br>
+    Best of all? <b>No framework at all</b>!
+  .buttons
+    iframe(src="https://ghbtns.com/github-btn.html?user=pemrouz&repo=ripple&type=star&count=true",frameborder="0",scrolling="0",width="78px",height="20px")
+    a(href="https://twitter.com/share",class="twitter-share-button",data-via="pemrouz",data-hashtags="Ripple") Tweet
+    script.
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    a(class="twitter-follow-button",href="https://twitter.com/pemrouz",data-show-count="false",data-lang="en") Follow @pemrouz
+    script.
+      window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+
+  stream-chart(data="prices")
+  stream-chart(data="prices", skip-prerender="true")
+
+  img(src='/images/diffs.png')
+
+  h1 Appendix
+
+  li.
+    <a href="https://twitter.com/tomdale">@tomdale</a> <a href="http://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/">on upcoming Ember FastBoot</a>: 
+    "More advanced things like <b>D3 graphs</b> won’t work, <b>obviously</b>, but hey, better than nothing". Locked to HTMLBars. Didn't find any details on state transfer.
+  li.
+    React Server Example: <a href="https://github.com/mhart/react-server-example">Dumps data</a>. Since React diffs its virtual DOM to virtual DOM, not with the actual DOM, the prerender is wasted. Uses JSX.
+  li.
+    Meteor: SSR "fundamentally violates a Meteor Core Principle". Meteor Hacks <a href="https://camo.githubusercontent.com/3e0d402096776d326f0b0a8cceb56e3202fbc567/68747470733a2f2f636c6475702e636f6d2f5246674d686a763771522e706e67">does this</a>.
+  li.
+    Angular 2: Undecided, but <a href="https://docs.google.com/document/d/1q6g9UlmEZDXgrkY88AJZ6MUrUxcnwhBGS0EXbVlYicY/edit#">leaning towards rendering HTML <i>and</i> JSON at best</a>. Obviously, lots of framework specific idioms and lock-in.
+
+  p If you think any of this incorrect, or if you think it can be improved, <a href="https://twitter.com/pemrouz">let me know: @pemrouz!</a>.

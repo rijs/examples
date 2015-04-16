@@ -1,0 +1,26 @@
+{
+  "name": "ripple-examples",
+  "version": "0.0.0",
+  "description": "* [Vanilla](https://github.com/pemrouz/ripple-examples/tree/master/minimal-vanilla): The simplest example of using ripple\r * [D3](https://github.com/pemrouz/ripple-examples/tree/master/minimal-d3): Same as vanilla, but demonstrate using D3 for rendering\r * [React](https://github.com/pemrouz/ripple-examples/tree/master/minimal-react): Same as vanilla, but demonstrate using React for rendering\r * [Heroku + Postgres](https://github.com/pemrouz/ripple-examples/tree/master/heroku-postgres): A simple, realtime, collaborative pixel editor that can run on heroku and use postgres as a persistence layer\r * [Flux Comparison](https://github.com/pemrouz/ripple-examples/tree/master/flux-comparison): A server-less example using Browserify to bundle resources.\r * [Time Travel TodoMVC](https://github.com/pemrouz/ripple-examples/tree/master/time-travel-todo): The obligatory TodoMVC example, with HTML Imports to deliver resources and a time travelling debugger to visualise and jump between application versions.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ripple": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pemrouz/ripple-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pemrouz/ripple-examples/issues"
+  },
+  "homepage": "https://github.com/pemrouz/ripple-examples"
+}
