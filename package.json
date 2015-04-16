@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "ripple": "^0.0.0"
+    "ripple": "git://github.com/pemrouz/ripple"
   },
   "devDependencies": {},
   "repository": {
