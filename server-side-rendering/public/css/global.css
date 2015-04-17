@@ -26,12 +26,6 @@ a {
 a:hover {
   background: #13b6f4; }
 
-html /deep/ *, 
-html /deep/ *::before, 
-html /deep/ *::after {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
 h1, p, li { 
   margin: 40px auto;
   font-weight: 300;
@@ -57,6 +51,69 @@ stream-chart {
   position: relative;
   width: 665px;
 }
+
+.bar {
+  fill: steelblue;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+g {
+  transition: opacity 200ms, transform 800ms ease-out;
+}
+
+line {
+  stroke: #13b6f4;
+  stroke-width: 1px;
+  stroke-linecap: round;
+  transition: all 250ms ease-in;
+}
+
+.y.axis {
+  stroke: white;
+  stroke-width: 5px;
+}
+
+svg {
+  box-shadow: 0px 0px 0px 5px rgba(120, 139, 148, 0.1);
+  border: 10px dashed transparent;
+}
+
+label { 
+  top: calc(50% - 50px);
+  right: -200px;
+  position: absolute;
+  color: white; 
+  font-size: 70px;
+  font-weight: 900;}
+
+
+.created::before { 
+  content: 'ELEMENTS CREATED';
+  display: block; 
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: rgba(120, 139, 148, 1.0);
+  font-size: 13px; }
+
+html /deep/ *, 
+html /deep/ *::before, 
+html /deep/ *::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 html /deep/ .bar {
   fill: steelblue;
