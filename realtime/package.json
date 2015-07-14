@@ -1,0 +1,9 @@
+{
+  "name": "ripple-examples",
+  "dependencies": {
+    "d3": "^3.5.4",
+    "ripple": "git://github.com/pemrouz/ripple.git",
+    "express": "^4.11.2",
+    "serve-static": "^1.7.1"
+  }
+}

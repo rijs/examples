@@ -1,0 +1,16 @@
+*, body /deep/ * { box-sizing: border-box; }
+
+body {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f5f5f5;
+  max-width: 550px;
+  padding: 30px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased; }
+
+body /deep/ live-cell {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid red; }
