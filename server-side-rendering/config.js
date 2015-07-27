@@ -1,6 +1,9 @@
+require('utilise')
+log = log('[rijs/example/ssr]')
+
 module.exports = {
     port: 4001
-  , log: console.log.bind(console, '[rijs]')
+  , log: log
   , ripple: {
       client: false
     , utils: true

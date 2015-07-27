@@ -1,8 +1,7 @@
 var app    = require('express')()
   , http   = require('http').createServer(app)
   , config = require('./config')
-  , ripple = require('ripple')(http, config.ripple)
-  , resdir = require('./resdir')(ripple)
+  , ripple = require('ripple')(http)
   , serve  = require('serve-static')
   , log    = config.log
   , prices

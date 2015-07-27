@@ -2,7 +2,7 @@ module.exports = function(data){
   var self = this
     
   this.host
-    && once(this, 'content')
+    && once(this)('content', 1)
     && (self = this.host)
 
   if (window.prerender && attr(self, 'skip-prerender')) 
@@ -22,20 +22,22 @@ module.exports = function(data){
       .range([height-60, 30])
       .domain([0, 100])
 
-  var svg = once(self, 'svg.chart')
+  var o = once(self)
+
+  var svg = o('svg.chart', 1)
       .attr('width', width)
       .attr('height', height)
 
-  var chart = once(svg, 'g')
+  var chart = o('svg')('g', 1)
       .style('transform', 'translate(-' + (x(current)) + 'px, 30px)')
 
-  once(svg, 'line.y.axis')
+  o('svg')('line.y.axis', 1)
     .attr('x1', width-20)
     .attr('x2', width-20)
     .attr('y1', 0)
     .attr('y2', height)
 
-  once(chart, 'line', data, null/*, name*/)
+  o('svg g')('line', data, null/*, name*/)
     // .attr('key', key('x1'))
     .attr('x1', function(d) { return x(+d.x1) })
     .attr('y1', function(d) { return y(+d.y1) })
@@ -43,11 +45,11 @@ module.exports = function(data){
     .attr('y2', function(d) { return y(+d.y2) })
     .style('opacity', function(d,i){ return i/11 })
     .style('stroke-width', function(d,i){ return i+'px' })
-    .in.each(function(d){ stats.created++ })
+    .enter.each(function(d){ stats.created++ })
 
   function name(d){
     return d ? +d.x1 : +attr(this, 'key')
   }
 
-  once(self, 'label.created', [stats.created]).text(Number)
+  o('label.created', [stats.created]).text(Number)
 }
