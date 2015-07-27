@@ -1,5 +1,7 @@
 # TodoMVC + HTML Imports + Immutability + Time Travel Debugger!
 
+(Note: This example currently works with [v0.2](https://github.com/pemrouz/ripple/tree/3d750b53ed8b99347ae503bf300cafabd8491b84))
+
 This example, built in the style of the [obligatory TodoMVC example](https://github.com/tastejs/todomvc/), is primarily to demo the new automatic versioning of resources, using [immutable data structures](https://github.com/facebook/immutable-js) for memory efficiency and performance. Each resource object internally has a new `versions` property which is an array of all it's historical states. You can rollback individual resources by providing the historical index as the second parameter to ripple. As with all changes, rolling back a resource will also automatically rerender the parts of your app that it affects:
 
 ```js

@@ -1,16 +1,17 @@
 module.exports = function(cart){
   if (!cart) return;
-  var self = once(this, 'div.cart.uk-panel.uk-panel-box.uk-panel-box-primary')
-    once(self, 'div.uk-badge.uk-margin-bottom').text('Your Cart')
-    once(self, 'div.uk-margin-small-bottom', [nodes(), total()]).html(String)
-    once(self, 'button.uk-button.uk-button-large.uk-button-success.uk-align-right')
-      .on('click', onCheckout)
-      .attr('disabled', cart.length ? null : '')
-      .text('Checkout')
+
+  var o = once(this)('div.cart.uk-panel.uk-panel-box.uk-panel-box-primary', 1)
+  o('div.uk-badge.uk-margin-bottom', 1).text('Your Cart')
+  o('div.uk-margin-small-bottom', [nodes(), total()]).html(String)
+  o('button.uk-button.uk-button-large.uk-button-success.uk-align-right', 1)
+    .on('click', onCheckout)
+    .attr('disabled', cart.length ? null : '')
+    .text('Checkout')
 
   function nodes() {
     return cart.length
-      ? cart.filter(unique('id')).map(format).join('')
+      ? cart.reduce(unique, []).map(format).join('')
       : '<div>Please add some products to cart.</div>'
   }
 

@@ -23,5 +23,5 @@ heroku open
 Or, locally:
 
 ```
-node --harmony index.js
+node index.js
 ```

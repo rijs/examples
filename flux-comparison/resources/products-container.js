@@ -1,7 +1,11 @@
 module.exports = function(products){
-  once(this, 'h2')
+  var o = once(this)
+  
+  o('h2', 1)
     .text('Flux Shup Demo (Ripple)')
     .classed('uk-h2', true)
 
-  once(this, 'products-list').attr('data', 'products')
+
+  o('products-list', 1)
+    .attr('data', 'products')
 }

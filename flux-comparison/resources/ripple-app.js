@@ -1,6 +1,8 @@
 module.exports = function(){
-  once(this, 'products-container')
-  once(this, 'cart-container').attr('data', 'cart')
+  var o = once(this)
+  o('products-container', 1)
+  o('cart-container', 1)
+    .attr('data', 'cart')
 }
 
 
