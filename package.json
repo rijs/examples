@@ -1,23 +1,19 @@
 {
-  "name": "ripple-examples",
+  "name": "rijs.examples",
   "version": "0.0.0",
   "description": "Assorted Collection of Examples for Ripple",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "ripple": "git://github.com/pemrouz/ripple"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/pemrouz/ripple-examples.git"
+    "url": "https://github.com/rijs/examples.git"
   },
-  "author": "",
+  "author": "Pedram Emrouznejad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pemrouz/ripple-examples/issues"
+    "url": "https://github.com/rijs/examples/issues"
   },
   "homepage": "http://pemrouz.github.io/ripple"
 }
