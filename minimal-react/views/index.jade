@@ -1,7 +1,8 @@
 doctype
 html
   head
-    script(src="https://fb.me/react-0.13.3.js")
+    script(src="https://fb.me/react-with-addons-0.14.7.js")
+    script(src="https://fb.me/react-dom-0.14.7.js")
     script(src="/socket.io/socket.io.js")
     script(src="/ripple.js")
   body
@@ -13,6 +14,7 @@ html
         },
         componentDidMount: function() {
           var self = this
+          console.log('wat', ripple.resources.tweets)
           ripple('tweets').on('change', function() { 
             self.setState({ tweets: ripple('tweets') }) 
           })
@@ -25,4 +27,4 @@ html
         }
       })
 
-      React.render(React.createElement(TwitterFeed), container)
+      ReactDOM.render(React.createElement(TwitterFeed), container)

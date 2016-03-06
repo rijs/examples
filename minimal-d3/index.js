@@ -1,17 +1,17 @@
 var app    = require('express')()
   , server = require('http').createServer(app)
-  , ripple = require('ripple')(server)
+  , ripple = require('rijs').default(server)
 
 ripple('tweets', ['lorem', 'ipsum'])
-ripple('twitter-feed', function(d){
-    d3.select(this)
-      .selectAll('li')
-      .data(d)
-      .enter()
-      .append('li')
-      .text(String)
-      .style('color', 'green')
-  })
+ripple('twitter-feed', function(data){
+  d3.select(this)
+    .selectAll('li')
+    .data(data.tweets)
+    .enter()
+    .append('xhtml:li')
+    .text(String)
+    .style('color', 'green')
+})
 
 server.listen(4000)
 

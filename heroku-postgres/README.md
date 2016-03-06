@@ -23,6 +23,7 @@ heroku open
 Or, locally:
 
 ```
+npm i
 node index.js
 start http://localhost:5000
 ```

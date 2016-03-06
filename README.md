@@ -7,3 +7,4 @@
 * [Flux Comparison](https://github.com/rijs/examples/tree/master/flux-comparison): A server-less example using Browserify to bundle resources.
 * [The Perfect Render](https://github.com/rijs/examples/tree/master/server-side-rendering): Completely seamless and maximally efficient server side rendering, with subsequent rendering picked up on the client.
 * [Time Travel TodoMVC](https://github.com/rijs/examples/tree/master/time-travel-todo): The obligatory TodoMVC example, with HTML Imports to deliver resources and a time travelling debugger to visualise and jump between application versions.
+* [DBMonster](http://mathieuancelin.github.io/js-repaint-perfs/ripple): The DBMonster challenge made in Ripple for performance comparisons.

@@ -5,9 +5,10 @@
   "scripts": {
     "babel": "babel src -d dist --copy-files",
     "clean": "rm -rf dist && mkdir dist",
+    "copy": "cp ./node_modules/rijs.minimal/dist/ripple.min.js dist/ripple.min.js",
     "export": "sh -c 'rijs.export dist'",
     "bundle": "sh -c 'echo \"ripple(require(\\'./dist/index.js\\'))\" | browserify - -o dist/app.js",
-    "build": "npm run clean && npm run babel && npm run export && npm run bundle"
+    "build": "npm run clean && npm run babel && npm run export && npm run bundle && npm run copy"
   },
   "author": "Pedram Emrouznejad (https://github.com/pemrouz)",
   "license": "pemrouz.mit-license.org",

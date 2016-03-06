@@ -7,5 +7,5 @@ This can be used as a generator template project, with no dependencies.
 ```
 npm i
 node index.js
-start localhost:4000
+start http://localhost:5000
 ```

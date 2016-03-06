@@ -3,6 +3,6 @@
   "dependencies": {
     "express": "^4.11.2",
     "jade": "*",
-    "ripple": "git://github.com/pemrouz/ripple.git"
+    "rijs": "*"
   }
 }
