@@ -1,10 +1,9 @@
 var static = require('serve-static')(__dirname)
   , app    = require('express')()
   , server = require('http').createServer(app)
-  , ripple = require('ripple')(server)
+  , ripple = require('rijs').default({ server, db: process.env.DATABASE_URL })
  
 ripple
-  .db(process.env.DATABASE_URL)
   .resource('squares', [])
   .resource('squares-canvas', function squares(data){
     var cell = 15
@@ -12,7 +11,7 @@ ripple
       , fill = Array(1600)
       , join
 
-    data.forEach(mark)
+    data.squares.forEach(mark)
 
     join = d3.select(this)
       .selectAll('square')
@@ -21,10 +20,7 @@ ripple
     join.enter()
       .append('xhtml:square')
       .on('click', function(d, i){  
-        ripple('squares').push({ 
-          square: i
-        , value: !d
-        })
+        push({ square: i, value: !d })(ripple('squares'))
       })
 
     join

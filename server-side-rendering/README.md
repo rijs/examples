@@ -10,3 +10,5 @@ See [http://rijs.io/hybrid](http://rijs.io/hybrid) for more info.
 npm i
 node index.js
 ```
+
+NOTE: This example needs to be upgraded

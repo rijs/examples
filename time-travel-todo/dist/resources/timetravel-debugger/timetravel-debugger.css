@@ -1,0 +1,39 @@
+:host {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: white; 
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);  }
+
+  :host(::before) {
+    content: 'Time Travel';
+    font-weight: bold;
+    display: block;
+    padding: 20px; }
+
+  a {
+    display: block; 
+    padding: 0px 20px 15px 35px; 
+    font-weight: bold; }
+
+  a span {
+    position: relative;
+    padding: 0px 5px; 
+    font-weight: normal; }
+
+  a span::before {
+    content: attr(details);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute; 
+    top: 110%; 
+    font-family: monospace;
+    font-size: 11px;
+    background: black;
+    color: white;
+    line-height: 21px;
+    padding: 5px;
+    border-radius: 5px; }
+
+  a span:hover::before {
+    opacity: 0.9; }

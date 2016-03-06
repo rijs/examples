@@ -11,7 +11,7 @@ Running example: https://immense-scrubland-5550.herokuapp.com/ (try opening in t
 ```
 git init
 heroku create --http-git
-heroku addons:add heroku-postgresql:hobby-dev
+heroku addons:create heroku-postgresql:hobby-dev
 echo 'create table squares (id serial, square int, value boolean);' | heroku pg:psql 
 git add .
 git commit -m 'ripple'
@@ -24,4 +24,5 @@ Or, locally:
 
 ```
 node index.js
+start http://localhost:5000
 ```

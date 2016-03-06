@@ -1,15 +1,15 @@
 var app    = require('express')()
   , server = require('http').createServer(app)
-  , ripple = require('ripple')(server)
+  , ripple = require('rijs').default(server)
 
 ripple
   .resource('tweets', ['lorem', 'ipsum'])
-  .resource('twitter-feed', function(d){
+  .resource('twitter-feed', function(data){
     this.host.style.color = 'green'
-    this.innerHTML = '<li>' + d.join('</li><li>') + '</li>'
+    this.innerHTML = '<li>' + data.tweets.join('</li><li>') + '</li>'
   })
 
-server.listen(4000)
+server.listen(5000)
 
 app.get('/', function(req, res){
   res.render('index.jade')

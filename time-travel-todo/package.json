@@ -1,7 +1,24 @@
 {
-  "name": "ripple-examples",
-  "dependencies": {
-    "d3": "^3.5.4",
-    "ripple": "git://github.com/pemrouz/ripple.git"
+  "name": "time-travel-todo",
+  "version": "0.0.0",
+  "main": "dist",
+  "scripts": {
+    "babel": "babel src -d dist --copy-files",
+    "clean": "rm -rf dist && mkdir dist",
+    "export": "sh -c 'rijs.export dist'",
+    "bundle": "sh -c 'echo \"ripple(require(\\'./dist/index.js\\'))\" | browserify - -o dist/app.js",
+    "build": "npm run clean && npm run babel && npm run export && npm run bundle"
+  },
+  "author": "Pedram Emrouznejad (https://github.com/pemrouz)",
+  "license": "pemrouz.mit-license.org",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-preset-es2015": "*",
+    "babelify": "*",
+    "popper": "*",
+    "browserify": "*",
+    "rijs.minimal": "*",
+    "rijs.export": "*",
+    "versioned": "*"
   }
 }

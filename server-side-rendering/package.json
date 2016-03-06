@@ -9,11 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d3": "^3.5.5",
     "express": "^4.12.3",
     "jade": "^1.9.2",
-    "ripple": "git://github.com/pemrouz/ripple",
-    "utilise": "git://github.com/utilise/utilise",
+    "rijs": "*",
     "serve-static": "^1.9.2"
   }
 }

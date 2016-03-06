@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rijs/examples/issues"
   },
-  "homepage": "http://pemrouz.github.io/ripple"
+  "homepage": "http://pemrouz.github.io/ripple",
+  "devDependencies": {
+    "babel-cli": "^6.1.18"
+  }
 }

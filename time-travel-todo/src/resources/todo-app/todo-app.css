@@ -1,0 +1,22 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+:host {
+  max-width: 550px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased; 
+  display: block;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1); }
+
+  [type=text] {
+    background: rgba(0,0,0,0);
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    font-family: inherit;
+    outline: none;
+    padding: 14px;
+    border: none;
+    border-bottom: 1px solid #ededed; 
+    box-shadow: rgba(0, 0, 0, 0.027451) 0px 2px 1px ; }
