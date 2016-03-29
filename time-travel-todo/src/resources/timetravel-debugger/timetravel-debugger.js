@@ -1,7 +1,7 @@
 export default function debug({ versions }) {
   const o = once(this)
       , label = d => d.name + ' (' + d.index + ')' 
-      , details = d => str(ripple.resources[d.name].body.log[d.index].value.toJS())
+      , details = d => str(ripple.version.calc(d.name, d.index))
 
   o('a', versions)
     .text((d, i) => i)
@@ -10,6 +10,9 @@ export default function debug({ versions }) {
       .attr('details', details)
       .text(label)
 
-  ripple.on('change.debugger', name => name !== 'versions' && ripple('versions', ripple.version.log))
+  ripple.on('change.debugger', name => 
+    name !== 'versions' && 
+      ripple('versions', ripple.version.log))
+
   if (!versions.length) ripple.on.change.debugger()
 }

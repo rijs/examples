@@ -12,7 +12,7 @@ function debug(_ref) {
     return d.name + ' (' + d.index + ')';
   },
       details = function details(d) {
-    return str(ripple.resources[d.name].body.log[d.index].value.toJS());
+    return str(ripple.version.calc(d.name, d.index));
   };
 
   o('a', versions).text(function (d, i) {
@@ -26,5 +26,6 @@ function debug(_ref) {
   ripple.on('change.debugger', function (name) {
     return name !== 'versions' && ripple('versions', ripple.version.log);
   });
+
   if (!versions.length) ripple.on.change.debugger();
 }

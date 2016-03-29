@@ -20,7 +20,7 @@ exports.default = {
   name: 'filter',
   body: (0, _versioned2.default)({ current: 'All' })
 };
-},{"versioned":21}],4:[function(require,module,exports){
+},{"versioned":11}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37,7 +37,7 @@ exports.default = {
   name: 'items',
   body: (0, _versioned2.default)([{ item: 'lorem', completed: true }, { item: 'ipsum', completed: false }])
 };
-},{"versioned":21}],5:[function(require,module,exports){
+},{"versioned":11}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -62,7 +62,7 @@ function debug(_ref) {
     return d.name + ' (' + d.index + ')';
   },
       details = function details(d) {
-    return str(ripple.resources[d.name].body.log[d.index].value.toJS());
+    return str(ripple.version.calc(d.name, d.index));
   };
 
   o('a', versions).text(function (d, i) {
@@ -76,6 +76,7 @@ function debug(_ref) {
   ripple.on('change.debugger', function (name) {
     return name !== 'versions' && ripple('versions', ripple.version.log);
   });
+
   if (!versions.length) ripple.on.change.debugger();
 }
 },{}],7:[function(require,module,exports){
@@ -5146,8 +5147,38 @@ function item(d, i) {
 
 }));
 },{}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _emitterify = require('utilise/emitterify');
+
+var _emitterify2 = _interopRequireDefault(_emitterify);
+
+var _def = require('utilise/def');
+
+var _def2 = _interopRequireDefault(_def);
+
+var _is = require('utilise/is');
+
+var _is2 = _interopRequireDefault(_is);
+
+var _immutable = require('immutable');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (o) {
+  return o.log || !_is2.default.obj(o) ? (err('expected to be an object: ', o), o) : ((0, _def2.default)((0, _emitterify2.default)(o, -1), 'log', [{ value: (0, _immutable.fromJS)(o) }], 1), (0, _def2.default)(o.log, 'reset', function (d) {
+    return o.log.push({ value: (0, _immutable.fromJS)(d) }), o.log;
+  }), o);
+};
+
+var err = require('utilise/err')('[versioned]');
+},{"immutable":10,"utilise/def":13,"utilise/emitterify":14,"utilise/err":15,"utilise/is":17}],12:[function(require,module,exports){
 module.exports = typeof window != 'undefined'
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var has = require('utilise/has')
 
 module.exports = function def(o, p, v, w){
@@ -5155,7 +5186,7 @@ module.exports = function def(o, p, v, w){
   return o[p]
 }
 
-},{"utilise/has":15}],13:[function(require,module,exports){
+},{"utilise/has":16}],14:[function(require,module,exports){
 var err  = require('utilise/err')('[emitterify]')
   , keys = require('utilise/keys')
   , def  = require('utilise/def')
@@ -5213,7 +5244,7 @@ module.exports = function emitterify(body, dparam) {
     return callback.once = true, body.on(type, callback), body
   }
 }
-},{"utilise/def":12,"utilise/err":14,"utilise/is":16,"utilise/keys":17,"utilise/not":18}],14:[function(require,module,exports){
+},{"utilise/def":13,"utilise/err":15,"utilise/is":17,"utilise/keys":18,"utilise/not":19}],15:[function(require,module,exports){
 var owner = require('utilise/owner')
   , to = require('utilise/to')
 
@@ -5225,11 +5256,11 @@ module.exports = function err(prefix){
     return console.error.apply(console, args), d
   }
 }
-},{"utilise/owner":19,"utilise/to":20}],15:[function(require,module,exports){
+},{"utilise/owner":20,"utilise/to":21}],16:[function(require,module,exports){
 module.exports = function has(o, k) {
   return k in o
 }
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = is
 is.fn     = isFunction
 is.str    = isString
@@ -5302,21 +5333,21 @@ function isIn(set) {
          : d in set
   }
 }
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function keys(o) {
   return Object.keys(o || {})
 }
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function not(fn){
   return function(){
     return !fn.apply(this, arguments)
   }
 }
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (global){
 module.exports = require('utilise/client') ? /* istanbul ignore next */ window : global
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"utilise/client":11}],20:[function(require,module,exports){
+},{"utilise/client":12}],21:[function(require,module,exports){
 module.exports = { 
   arr: toArray
 , obj: toObject
@@ -5340,34 +5371,4 @@ function toObject(d) {
     return p
   }
 }
-},{}],21:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _emitterify = require('utilise/emitterify');
-
-var _emitterify2 = _interopRequireDefault(_emitterify);
-
-var _def = require('utilise/def');
-
-var _def2 = _interopRequireDefault(_def);
-
-var _is = require('utilise/is');
-
-var _is2 = _interopRequireDefault(_is);
-
-var _immutable = require('immutable');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (o) {
-  return o.log || !_is2.default.obj(o) ? (err('expected to be an object: ', o), o) : ((0, _def2.default)((0, _emitterify2.default)(o, -1), 'log', [{ value: (0, _immutable.fromJS)(o) }], 1), (0, _def2.default)(o.log, 'reset', function (d) {
-    return o.log.push({ value: (0, _immutable.fromJS)(d) }), o.log;
-  }), o);
-};
-
-var err = require('utilise/err')('[versioned]');
-},{"immutable":10,"utilise/def":12,"utilise/emitterify":13,"utilise/err":14,"utilise/is":16}]},{},[1]);
+},{}]},{},[1]);
