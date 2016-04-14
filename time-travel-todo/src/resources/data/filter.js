@@ -1,6 +1,5 @@
-import versioned from 'versioned'
-
 export default {
   name: 'filter'
-, body: versioned({ current: 'All' })
+, body: { current: 'All' }
+, headers: { log: 10 }
 }
