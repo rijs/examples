@@ -15,7 +15,7 @@ function todo(_ref) {
 
   o('todo-footer', { items: items, filter: filter });
 
-  o('todo-item', visible, null, 'todo-footer').each(ripple.draw);
+  o('todo-item', changed(visible), null, 'todo-footer');
 
   function addItem() {
     if (window.event.which != 13 || !this.value) return;
@@ -26,5 +26,18 @@ function todo(_ref) {
     })(items);
 
     this.value = '';
+  }
+
+  function changed(items) {
+    var _o$node = o.node();
+
+    var change = _o$node.change;
+    var key;
+
+    return change.length !== 1 ? items : !change[0] ? items : change[0][0] !== 'items' ? items : !isFinite(key = change[0][1].key.split('.').shift()) ? items : items.map(function (_ref2) {
+      var completed = _ref2.completed;
+      var item = _ref2.item;
+      return { completed: completed, item: item, key: key };
+    });
   }
 }

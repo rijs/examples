@@ -4,7 +4,7 @@ export default function todo({ items, filter }){
       , visible = 
           current == 'Completed' ? items.filter(by('completed', true))
         : current == 'Active'    ? items.filter(by('completed', false))
-                                : items
+                                 : items
 
   o('input', 1)
     .property('placeholder', 'What needs to be done?')
@@ -13,8 +13,7 @@ export default function todo({ items, filter }){
 
   o('todo-footer', { items, filter })
 
-  o('todo-item', visible, null, 'todo-footer')
-    .each(ripple.draw)
+  o('todo-item', changed(visible), null, 'todo-footer')
 
   function addItem() {
     if (window.event.which != 13 || !this.value) return;
@@ -26,4 +25,15 @@ export default function todo({ items, filter }){
 
     this.value = ''
   }
+
+  function changed(items) {
+    var { change } = o.node()
+      , key
+
+    return  change.length !== 1       ? items
+         : !change[0]                 ? items
+         :  change[0][0]  !== 'items' ? items
+         : !isFinite(key = change[0][1].key.split('.').shift()) ? items
+         : items.map(({ completed, item }) => ({ completed, item, key }))
+  } 
 }

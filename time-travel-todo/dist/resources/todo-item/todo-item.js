@@ -5,14 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = item;
 function item(d, i) {
+  if ('key' in d && d.key != --i) return;
+
   var complete = function complete(el) {
     return function (d) {
-      return update(i - 1 + '.completed', el.checked)(ripple('items'));
+      return update(i + '.completed', el.checked)(ripple('items'));
     };
   },
       destroy = function destroy(el) {
     return function (d) {
-      return remove(i - 1)(ripple('items'));
+      return remove(i)(ripple('items'));
     };
   },
       o = once(this);
