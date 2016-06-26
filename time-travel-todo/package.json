@@ -7,7 +7,7 @@
     "babel": "babel src -d dist --copy-files",
     "clean": "rm -rf dist && mkdir dist",
     "copy": "cp ./node_modules/rijs.minimal/dist/ripple.js dist/ripple.js",
-    "export": "sh -c 'rijs.export dist'",
+    "export": "sh -c 'rijs.export'",
     "bundle": "sh -c 'echo \"ripple(require(\\'./dist/index.js\\'))\" | browserify - -o dist/app.js",
     "build": "npm run clean && npm run babel && npm run export && npm run bundle && npm run copy"
   },
