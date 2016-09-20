@@ -1,0 +1,53 @@
+:host {
+  position: relative;
+  overflow-x: hidden;
+  text-align: center; 
+  display: block }
+
+  :host > h1 {
+    font-size: 1.3em; 
+    font-weight: 500; }
+
+  :host > .count {
+    color: #757575;
+    font-size: 12px; }
+
+  :host > .blur-img {
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 40px;
+    width: 100%; 
+    height: 320px; }
+
+  :host > img { 
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    top: 0;
+    opacity: 0;
+    margin: 0 auto;
+    transition: opacity 0.5s;
+    display: block;
+    transition: all 300ms;
+    height: 320px; }
+
+  :host > .item {
+    margin: 40px;
+    display: inline-block; }
+
+    :host > .item > .title {
+      color: #202020;
+      margin-bottom: 7px;
+      font-weight: bold; }
+
+    :host > .item > .price {
+      color: #757575; }
+    
+    :host > .item > .price::before {
+      content: '£'; }
+
+    :host > .item > img {
+      opacity: 0;
+      transition: opacity 0.5s;
+      width: 300px;
+      height: 300px; }
