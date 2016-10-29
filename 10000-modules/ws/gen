@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+const fs = require('fs')
+    , write = i => fs.writeFileSync(`./resources/x-${i}.js`, `module.exports = d => window.cb(${i})`)
+    , argv = require('minimist')(process.argv.slice(2))
+    , total = argv.total || argv.t || 10000
+
+for (let i = 0; i < total; i++)
+  write(i)

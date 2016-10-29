@@ -1,0 +1,15 @@
+<script>delete localStorage.ripple</script>
+<script src="/ripple.js" transports="websocket,polling"></script>
+<script>
+  let start = performance.now()
+    , count = 1
+  
+  function cb(){
+    ++count
+    if (count == 100) console.log("100", performance.now() - start)
+    if (count == 1000) console.log("1000", performance.now() - start)
+    if (count == 10000) console.log("10000", performance.now() - start)
+  }
+</script>
+
+<app-main></app-main>
