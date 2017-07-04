@@ -2,7 +2,7 @@
   display: block;
   margin: 100px auto;
   position: absolute;
-  overflow: hidden;
+  /*overflow: hidden;*/
   left: 10%;
   right: 10%;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
