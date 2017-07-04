@@ -1,10 +1,11 @@
 :host {
-  contain: strict;
+  left: 0;
+  right: 0;
   box-sizing: border-box;
   display: block;
   padding: 14px;
   height: 52px;
-  position: relative;
+  position: absolute;
   width: 100%;
   overflow: hidden;
   line-height: 24px; }

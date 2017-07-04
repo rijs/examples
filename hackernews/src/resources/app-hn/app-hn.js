@@ -23,7 +23,7 @@ export default (node, { stories }) => {
     .each((el, d, i) => 
       el.animate(
         { transform: [`translateY(${is.def(el.currentPos) ? el.currentPos : -52}px)`, `translateY(${el.currentPos = STORY_HEIGHT*i}px)`] }
-      , { duration: 500, fill: 'forwards' }
+      , { duration: 500, fill: 'forwards', easing: 'ease-in-out' }
       )
     )
 }

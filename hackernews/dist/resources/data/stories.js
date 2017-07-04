@@ -83,10 +83,10 @@ exports.default = {
   name: 'stories',
   body: {},
   headers: { loaded: loaded }
+
+  // setInterval(d => update('a', 'a')(ripple('stories')), 2000)
+
 };
-
-// setInterval(d => update('a', 'a')(ripple('stories')), 2000)
-
 var latest = 0;
-var MAX_CACHE_SIZE = 30,
+var MAX_CACHE_SIZE = 20,
     log = require('utilise/log')('[hn]');
