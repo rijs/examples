@@ -2,23 +2,15 @@
   "name": "realtime-hn",
   "version": "1.0.0",
   "description": "Realtime HN",
-  "main": "dist",
+  "main": ".",
   "scripts": {
-    "build": "npm run clean && npm run babel",
-    "clean": "rm -rf dist && mkdir dist",
-    "babel": "babel src -d dist --copy-files --harmony",
-    "start": "node --harmony . --color",
-    "dev": "babel-node --harmony ./src --color"
+    "start": "node . --color"
   },
   "author": "pemrouz (https://github.com/pemrouz)",
   "license": "pemrouz.mit-license.org",
-  "devDependencies": {
-    "babel-cli": "*",
-    "babel-preset-latest": "*"
-  },
   "dependencies": {
     "firebase": "^3.6.4",
-    "rijs": "^0.7.1",
+    "rijs": "rijs/fullstack",
     "utilise": "*"
   }
 }

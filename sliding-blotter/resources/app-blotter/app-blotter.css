@@ -1,0 +1,43 @@
+:host {
+  background: black;
+  display: block;
+  width: 80%;
+  margin: 0 auto; 
+  color: white;
+  height: 200px;
+  border: 10px solid black; 
+  box-shadow: 0 0 0 2px white; 
+  overflow: auto; 
+  user-select: none; }
+
+  :host > .container {
+    position: relative; }
+
+    :host > .container > .row {
+      color: #6d7f8f;
+      width: 100%;
+      height: 20px;
+      position: absolute; }
+
+      :host > .container > .row > .cell {
+        contain: strict;
+        height: inherit;
+        display: block;
+        position: absolute;
+        width: 9%;
+        text-overflow: ellipsis;
+        white-space: pre;
+        overflow: hidden;
+      }
+
+      :host > .container > .row > .cell0  { left: 0%; width: 3%;}
+      :host > .container > .row > .cell1  { left: 3%; color: white; }
+      :host > .container > .row > .cell2  { left: 12% }
+      :host > .container > .row > .cell3  { left: 21% }
+      :host > .container > .row > .cell4  { left: 30% }
+      :host > .container > .row > .cell5  { left: 39% }
+      :host > .container > .row > .cell6  { left: 48% }
+      :host > .container > .row > .cell7  { left: 57% }
+      :host > .container > .row > .cell8  { left: 66%; width: 7%; }
+      :host > .container > .row > .cell9  { left: 73%; width: 7%; color: #14b7f4; font-weight: 500; }
+      :host > .container > .row > .cell10 { left: 80%; width: 20%; color: #14b7f4; }

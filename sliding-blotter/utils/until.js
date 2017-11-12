@@ -1,0 +1,1 @@
+module.exports = stop => (d, i, n) => n.until = n.until || stop.then(n.off)

@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500,100,300,700);
+
+html, body { 
+  font-family: Roboto, verdana;
+  font-weight: 300;
+  margin: 0;
+  padding: 0; 
+  color: white;
+  background: #171d25; 
+  text-shadow: 2px 2px 1px rgba(0,0,0,0.8); }
+
+*, 
+*::before, 
+*::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+a {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+  color: inherit;
+  transition: background 150ms, color 150ms; }
+
+a:hover {
+  background: #13b6f4; }
+
+b {
+  font-weight: 500;
+  color: #14b7f4 }
+
+h1, p { 
+  margin: 40px auto;
+  font-weight: 300;
+  width: 80%;
+  text-align: center; 
+  line-height: 30px; }
+
+img { 
+  margin: 0 28px 28px 0; 
+  border: 2px solid white;
+  vertical-align: top; }
+
+body > div {
+  width: 80%;
+  clear: both;
+  margin: 0 auto; }
+
+body > div > div {
+  line-height: 30px;
+  width: calc(100% - 500px);
+  text-align: left;
+  display: inline-block;
+  margin: 0; }
+
+code {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 2px 5px;
+  margin: 2px;
+  background: rgba(255,255,255,0.04) }

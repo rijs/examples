@@ -1,0 +1,20 @@
+{
+  "name": "sliding-blotter",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node . --color"
+  },
+  "keywords": [],
+  "author": "pemrouz (https://github.com/pemrouz)",
+  "license": "pemrouz.mit-license.org",
+  "browser": {
+    "combine": "./utils/combine.js",
+    "latest": "./utils/latest.js",
+    "until": "./utils/until.js"
+  },
+  "dependencies": {
+    "rijs": "0.8",
+    "rijs.npm": "github:rijs/npm"
+  }
+}

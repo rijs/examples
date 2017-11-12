@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="/main.css">
+<h1><a href="https://github.com/rijs/fullstack/releases/tag/v0.8.0">Ripple v0.8</a></h1>
+<p>The following shows-off creating robust, extremely dynamic/reactive, performant components in just a handful of lines. <br>The focus has been on refining the underlying primitives so that application code can be more focused on writing business logic with less cognitive overhead</p>
+<app-blotter></app-blotter>
+<p>At any one time there are <b>only 10 active subscriptions</b> that update every second even whilst scrolling, <b>10 rows</b> even though there are lots of trades and the number is changing, <b>the minimum number of DOM mutations each render</b> even the code is declarative plain JS, <b>all streams are torn down when the component is disconnected</b> even though we are creating streams of streams and <b>only delta's sent for what it is in view over the wire</b>. It currently idles (CPU-wise) at less than moving your mouse on Facebook or Twitter, but there is much more to come performance-wise.</p>
+<div>
+  <img src="/streams.png" width="460"> 
+  <div>You can <a href="https://github.com/rijs/examples/blob/master/sliding-blotter/resources/app-blotter/app-blotter.js">check out the full code here</a>. Here's an explanation of the main paragraph: 
+    <li>First we combine the DOM scroll (<code>offset</code>) and resize (<code>length</code>) streams to determine the window of trades we are looking at. </li>
+    <li>This is then mapped to an array of trade IDs for that window (<code>.send</code> now returns a promise/stream).</li>
+    <li>This is then switch-mapped (<code>latest</code>) to automatically unsubscribe the previous stream when a new one is emitted and flatten the output from the inner stream.</li>
+    <li>The ID's are mapped to a subscription for that trade. <code>.subscribe</code> allows subscribing to an arbitrary part of a resource. This is just sugar over <code>.send</code>, but encourages a format that allows the framework to better deduplicate subscriptions (i.e. if two components are subscribed to the same parts of a resource, it won't be duplicated).</li>
+    <li>Each of those subscription's are then switch-mapped (<code>latest</code> works on a stream or array of streams). This means as you scroll, only the one's that go out of view get unsubscribed and the newly added ones get subscribed.</li> 
+    <li>We then update the state of the component with the latest trades in view and invoke a redraw, which efficiently updates the DOM.</li> 
+  </div>
+</div>
+<p><a href="http://twitter.com/pemrouz">@pemrouz</a></p>
+<script src="https://rawgit.com/utilise/utilise/master/utilise.js"></script>
+<script src="/ripple.js" defer></script>
+

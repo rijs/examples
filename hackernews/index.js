@@ -1,0 +1,1 @@
+const { server } = require('rijs')({ port: 3000, dir: __dirname })
