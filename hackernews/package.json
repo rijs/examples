@@ -9,8 +9,8 @@
   "author": "pemrouz (https://github.com/pemrouz)",
   "license": "pemrouz.mit-license.org",
   "dependencies": {
-    "firebase": "^3.6.4",
-    "rijs": "rijs/fullstack",
-    "utilise": "*"
+    "firebase": "^3.9.0",
+    "rijs": "^0.8.2",
+    "utilise": "^2.1.6"
   }
 }

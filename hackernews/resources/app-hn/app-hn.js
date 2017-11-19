@@ -20,10 +20,12 @@ module.exports = (node, { stories }) => {
   o('hn-story', items, d => d.id)
     .classed('score-changed', d => d.id in scoresChanged)
     .classed('comments-changed', d => d.id in commentsChanged)
-    .each((el, d, i) => 
-      el.animate(
-        { transform: [`translateY(${is.def(el.currentPos) ? el.currentPos : -52}px)`, `translateY(${el.currentPos = STORY_HEIGHT*i}px)`] }
-      , { duration: 500, fill: 'forwards', easing: 'ease-in-out' }
-      )
-    )
+    .each((el, d, i) => {
+      el.animate
+        ? el.animate(
+            { transform: [`translateY(${is.def(el.currentPos) ? el.currentPos : -52}px)`, `translateY(${el.currentPos = STORY_HEIGHT*i}px)`] }
+          , { duration: 500, fill: 'forwards', easing: 'ease-in-out' }
+          )
+        : (el.style.top = `${STORY_HEIGHT*i}px`)  
+    })
 }
