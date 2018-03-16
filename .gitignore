@@ -2,3 +2,4 @@ node_modules
 performance
 realtime
 .log
+_*

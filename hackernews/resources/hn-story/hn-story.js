@@ -1,12 +1,13 @@
-module.exports = {
-  name: 'hn-story'
-, body
-, headers: { needs: '[css]' }
-}
+const styles = require('./hn-story.css.js')
+    , define = require('@compone/define')
+    , style = require('@compone/style')
+    , once = require('utilise/once')
 
-function body(node, { id, title = '', descendants = 0, score = 0, url }){
+module.exports = define('hn-story', async (node, { id, title = '', descendants = 0, score = 0, url }) => {
+  await style(node, styles)
+
   const o = once(node)
-
+  
   o('a.title', 1)
     .attr('href', url)
     .text(title)
@@ -17,4 +18,4 @@ function body(node, { id, title = '', descendants = 0, score = 0, url }){
 
   o('span.score', 1)
     .text(score)
-}
+})

@@ -1,8 +1,0 @@
-{
-  "name": "ripple-examples",
-  "dependencies": {
-    "express": "^4.11.2",
-    "jade": "*",
-    "rijs": "*"
-  }
-}

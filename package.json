@@ -17,6 +17,10 @@
   },
   "homepage": "http://pemrouz.github.io/ripple",
   "devDependencies": {
-    "babel-cli": "^6.1.18"
+    "babel-cli": "^6.1.18",
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "dependencies": {
+    "http2": "^3.3.6"
   }
 }

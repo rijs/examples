@@ -11,7 +11,8 @@ module.exports = class {
     , 'combine'
     , 'latest'
     ])
-
+console.log("emitterify", emitterify)
+console.log("debounce", debounce)
     const o = once(node)
         , ROW_HEIGHT = 20
         , offset = emitterify().on('change')//.until(o.on('disconnected'))

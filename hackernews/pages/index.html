@@ -1,7 +1,23 @@
 <html>
 <title>Realtime HN Feed</title>
 <link rel="icon" href="data:;base64,=">
-<app-hn data="stories"></app-hn>
+<app-hn></app-hn>
 <script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
-<script src="https://rawgit.com/utilise/utilise/master/utilise.min.js" defer></script>
-<script src="/ripple.pure.min.js" defer></script>
+<script src="/ripple.min.js"></script>
+<script>ripple.subscribe('app-hn')</script>
+<script>
+  // this is for backwards compatibility
+  Node.prototype.draw = function(){ 
+    this.render() 
+  }
+
+  // if no render is defined on a component, load up definition
+  Node.prototype.render = function(){
+    if (this.nodeName.includes('-')) 
+      this.fn$ = this.fn$ || ripple
+        .subscribe(this.nodeName.toLowerCase())
+        .until(new Promise(resolve => this.addEventListener('disconnected', () => {
+          if (!this.isConnected) resolve()
+        })))
+  }
+</script>

@@ -14,7 +14,7 @@
     "until": "./utils/until.js"
   },
   "dependencies": {
-    "rijs": "0.8",
+    "rijs": "github:rijs/fullstack",
     "rijs.npm": "github:rijs/npm"
   }
 }
