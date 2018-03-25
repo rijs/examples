@@ -9,8 +9,9 @@
   "author": "pemrouz (https://github.com/pemrouz)",
   "license": "pemrouz.mit-license.org",
   "dependencies": {
+    "@compone/style": "^1.0.0",
     "firebase": "^3.9.0",
-    "rijs": "^0.8.2",
+    "rijs": "^0.9.0",
     "utilise": "^2.1.6"
   }
 }

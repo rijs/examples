@@ -1,8 +1,8 @@
-const { server } = require('rijs')({ 
-  port: 3000
-, dir: __dirname 
-, aliases: {  
-    'app-hn': './resources/app-hn/app-hn.js'
-  , 'hn-story': './resources/hn-story/hn-story.js'
-  }
+require('rijs')({ dir: __dirname })
+.on('ready')
+.each(d => {
+  console.log("ripple.resources", ripple.resources)
+  console.log("ripple.resources", 'app-hn.css.js' in ripple.resources)
+  console.log("ripple.resources", 'app-hn.css' in ripple.resources)
+  console.log("ripple.resources", 'app-hn' in ripple.resources)
 })

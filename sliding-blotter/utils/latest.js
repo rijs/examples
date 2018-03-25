@@ -21,7 +21,10 @@ module.exports = input => {
   input
     .source
     .once('stop')
-    .map(d => latest.map($ => $.source.emit('stop')))
+    .each(d => {
+      console.log('lstop')
+      latest.map($ => $.source.emit('stop'))
+    })
 
   return output 
 }

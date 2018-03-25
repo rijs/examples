@@ -1,6 +1,5 @@
-const styles = require('./app-hn.css.js')
-    , define = require('@compone/define')
-    , style = require('@compone/style')
+const style = require('@compone/style')
+    , styles = require('./app-hn.css.js')
     , values = require('utilise/values')
     , once = require('utilise/once')
     , za = require('utilise/za')
@@ -9,7 +8,7 @@ const styles = require('./app-hn.css.js')
     , is = require('utilise/is')
     , { assign } = Object
 
-module.exports = define('app-hn', class {
+module.exports = class app {
   async connected(node){
     await style(node, styles)
     await ripple
@@ -49,4 +48,4 @@ module.exports = define('app-hn', class {
           : (el.style.top = `${STORY_HEIGHT*i}px`)  
       })
   }
-})
+}

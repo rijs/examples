@@ -1,16 +1,17 @@
 {
-  "name": "module-system",
+  "name": "basic-react-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node . --color"
   },
   "keywords": [],
   "author": "pemrouz (https://github.com/pemrouz)",
   "license": "pemrouz.mit-license.org",
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "rijs": "^0.9.1"
   }
 }

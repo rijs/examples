@@ -34,7 +34,6 @@ const loaded = (ripple, { body }) => {
   }, 100)
 
   setInterval(() => {
-    // log('updating'.green)
     for (let id in body) {
       update(`${id}.rate`, number(1000000, 5))(body)
       update(`${id}.last_updated`, new Date())(body)

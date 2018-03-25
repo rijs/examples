@@ -1,10 +1,9 @@
 const styles = require('./hn-story.css.js')
-    , define = require('@compone/define')
     , style = require('@compone/style')
     , once = require('utilise/once')
 
-module.exports = define('hn-story', async (node, { id, title = '', descendants = 0, score = 0, url }) => {
-  await style(node, styles)
+module.exports = (node, { id, title = '', descendants = 0, score = 0, url }) => {
+  style(node, styles)
 
   const o = once(node)
   
@@ -18,4 +17,4 @@ module.exports = define('hn-story', async (node, { id, title = '', descendants =
 
   o('span.score', 1)
     .text(score)
-})
+}
